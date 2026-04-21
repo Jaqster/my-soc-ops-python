@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Josefin+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+    --crimson: #C41E3A;
+    --crimson-dark: #8B1426;
+    --gold: #C8961E;
+    --gold-bright: #FFD700;
+    --cream: #FFF8DC;
+    --cream-dark: #EED98A;
+    --dark: #1A1A2E;
+}
+
 html,
 body,
 #app {
@@ -6,7 +18,7 @@ body,
 }
 
 body {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: 'Josefin Sans', system-ui, -apple-system, sans-serif;
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -160,4 +172,280 @@ button:disabled {
 
 .animate-\[bounce_0\.5s_ease-out\] {
     animation: bounce 0.5s ease-out;
+}
+
+/* ============================================
+   BIG TOP BINGO — Circus Theme
+   ============================================ */
+
+/* Typography */
+.font-circus { font-family: 'Abril Fatface', serif; }
+
+/* Backgrounds */
+.bg-crimson { background-color: var(--crimson); }
+.bg-crimson-dark { background-color: var(--crimson-dark); }
+.bg-gold-bright { background-color: var(--gold-bright); }
+.bg-cream { background-color: var(--cream); }
+.bg-dark { background-color: var(--dark); }
+
+/* Text */
+.text-gold { color: var(--gold); }
+.text-gold-bright { color: var(--gold-bright); }
+.text-crimson { color: var(--crimson); }
+.text-cream { color: var(--cream); }
+.text-dark-circus { color: var(--dark); }
+
+/* Borders */
+.border-gold { border-color: var(--gold); }
+.border-crimson { border-color: var(--crimson); }
+.border-2 { border-width: 2px; }
+
+/* Big top tent stripe — bold diagonal red & cream */
+.bg-tent-stripe {
+    background-color: var(--crimson);
+    background-image: repeating-linear-gradient(
+        -45deg,
+        var(--crimson) 0,
+        var(--crimson) 24px,
+        var(--cream) 24px,
+        var(--cream) 48px
+    );
+}
+
+/* Subtle tent stripe for game board background */
+.bg-tent-subtle {
+    background-color: var(--dark);
+    background-image: repeating-linear-gradient(
+        -45deg,
+        transparent 0,
+        transparent 20px,
+        rgba(196, 30, 58, 0.1) 20px,
+        rgba(196, 30, 58, 0.1) 40px
+    );
+}
+
+/* ---- Bingo squares ---- */
+.circus-square {
+    font-family: 'Josefin Sans', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.circus-square-unmarked {
+    background-color: var(--cream);
+    border-color: var(--crimson);
+    color: var(--dark);
+}
+
+.circus-square-unmarked:active {
+    background-color: var(--cream-dark);
+}
+
+.circus-square-marked {
+    background-color: var(--crimson);
+    border-color: var(--gold);
+    color: var(--cream);
+}
+
+.circus-square-winning {
+    background-color: var(--gold-bright);
+    border-color: var(--crimson);
+    color: var(--dark);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+}
+
+.circus-square-free {
+    background-color: var(--dark);
+    border-color: var(--gold-bright);
+    color: var(--gold-bright);
+    font-family: 'Abril Fatface', serif;
+}
+
+.circus-stamp {
+    color: var(--gold-bright);
+    font-size: 0.65rem;
+    line-height: 1;
+}
+
+/* ---- Vintage placard card ---- */
+.circus-placard {
+    background-color: var(--cream);
+    border: 3px solid var(--crimson);
+    box-shadow: 4px 4px 0 var(--crimson);
+    position: relative;
+}
+
+.circus-placard::before {
+    content: '✦ ✦ ✦';
+    position: absolute;
+    top: -0.7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--cream);
+    padding: 0 0.5rem;
+    color: var(--crimson);
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+}
+
+/* ---- Circus ticket CTA button ---- */
+.circus-ticket-btn {
+    display: block;
+    background-color: var(--crimson);
+    color: var(--gold-bright);
+    font-family: 'Abril Fatface', serif;
+    font-size: 1.25rem;
+    letter-spacing: 0.05em;
+    border: 3px solid var(--gold);
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    box-shadow: 0 5px 0 var(--crimson-dark), 0 6px 14px rgba(0,0,0,0.35);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.circus-ticket-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+    transition: left 0.45s ease;
+}
+
+.circus-ticket-btn:hover::after {
+    left: 160%;
+}
+
+.circus-ticket-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 var(--crimson-dark), 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* ---- Header bar ---- */
+.circus-header {
+    background-color: var(--crimson);
+    border-bottom: 3px solid var(--gold);
+}
+
+.circus-exit-btn {
+    color: var(--cream);
+    font-size: 0.875rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(255, 248, 220, 0.3);
+    transition: background-color 0.15s;
+    cursor: pointer;
+}
+
+.circus-exit-btn:active {
+    background-color: var(--crimson-dark);
+}
+
+/* ---- Spotlight bingo indicator ---- */
+.circus-spotlight {
+    background-color: var(--gold-bright);
+    color: var(--dark);
+    text-align: center;
+    padding: 0.5rem 1rem;
+    font-family: 'Abril Fatface', serif;
+    font-size: 0.875rem;
+    letter-spacing: 0.06em;
+    animation: spotlightPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes spotlightPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* ---- Instruction strip ---- */
+.circus-instruction {
+    background-color: rgba(26, 26, 46, 0.6);
+    color: var(--cream);
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    padding: 0.5rem 1rem;
+    text-align: center;
+}
+
+/* ---- Modal ---- */
+.circus-modal-overlay {
+    background: rgba(26, 26, 46, 0.88);
+}
+
+.circus-modal-box {
+    background: var(--dark);
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 0 6px var(--crimson), 0 24px 48px rgba(0, 0, 0, 0.6);
+    animation: circusEntrance 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.circus-bingo-title {
+    text-shadow: 0 0 24px var(--gold-bright), 4px 4px 0 var(--crimson-dark);
+}
+
+/* ---- Entrance animations ---- */
+.circus-entrance > * {
+    animation: fadeSlideUp 0.5s ease-out both;
+}
+
+.circus-entrance > *:nth-child(1) { animation-delay: 0.05s; }
+.circus-entrance > *:nth-child(2) { animation-delay: 0.15s; }
+.circus-entrance > *:nth-child(3) { animation-delay: 0.25s; }
+.circus-entrance > *:nth-child(4) { animation-delay: 0.38s; }
+.circus-entrance > *:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes circusEntrance {
+    from { opacity: 0; transform: scale(0.72) rotate(-4deg); }
+    to   { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+/* ---- Title glow ---- */
+.circus-title-glow {
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% { text-shadow: 3px 3px 0 var(--crimson-dark), 0 0 20px rgba(200,150,30,0.25); }
+    50%       { text-shadow: 3px 3px 0 var(--crimson-dark), 0 0 40px rgba(255,215,0,0.55), 0 0 70px rgba(200,150,30,0.2); }
+}
+
+.circus-shadow-invert {
+    text-shadow: 2px 2px 0 rgba(26,26,46,0.6);
+}
+
+/* ---- Stars burst (modal emoji) ---- */
+.circus-stars-burst {
+    display: inline-block;
+    animation: starsBurst 0.55s ease-out 0.25s both;
+}
+
+@keyframes starsBurst {
+    from { opacity: 0; transform: scale(0) rotate(0deg); }
+    to   { opacity: 1; transform: scale(1) rotate(360deg); }
+}
+
+/* ---- Decorative divider ---- */
+.circus-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
 }
